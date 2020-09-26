@@ -1,0 +1,279 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+    <link rel="stylesheet" href="{% static "fonts/feather/feather.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/flatpickr/dist/flatpickr.min.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/quill/dist/quill.core.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/highlightjs/styles/vs2015.css" %}" />
+    <link rel="stylesheet" href="{% static "css/theme.min.css"%}" id="stylesheetLight">
+    <link rel="stylesheet" href="{% static "css/theme-dark.min.css" %}" id="stylesheetDark">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+
+    <title>Diksha</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}"><strong style="margin-left:20px;">Diksha Portal</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav" style="margin-left:20px;">
+      <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+      <a class="nav-item nav-link" href="{% url 'SponsorProfile' %}">Sponsors</a>
+      <a class="nav-item nav-link" href="{% url 'EducationProfile' %}">Education <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">About Us</a>
+    </div>
+  </div>
+</nav><br><br><br><br>  
+<div class="container p-2 mt-2" style="text-align: center;">
+        <h2 class="text text-center text-white bg-dark">Sponsor Registration</h2>
+    </div>
+    {% if messages %}
+    {% for i in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert" style="width:400px;">
+      <strong>{{i}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+  </button>
+  </div>
+    {% endfor %}
+    {% endif %}
+    <div class="container p-4  border rounded">
+
+        <form class="needs-validation" novalidate action="{% url 'SponsorProfile'  %}" method="post" >
+          {% csrf_token %}
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label>Code of the child</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                  </div>
+                  <input type="text" class="form-control" id="code" placeholder="Code" aria-describedby="inputGroupPrepend" name="code">
+                  <div class="invalid-feedback">
+                    Enter Code of the child
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02">Name of the sponsor</label>
+                <input type="text" class="form-control" id="Date_of_entry" placeholder="First Name" name="Sponsor_Fname" value="">
+                <div class="invalid-feedback">
+                    Please Enter Date.
+                  </div>
+                <!-- <div class="valid-feedback">
+                  Looks good!
+                </div> -->
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom03">Surname of the sponsor</label>
+                <input type="text" class="form-control" id="Child_Fname" placeholder="Last Name" name="Sponsor_Lname">
+                <div class="invalid-feedback">
+                  Please Enter Name
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="Gender">Nationality</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Nationality">
+                <option value="" disabled selected hidden>Choose Anyone...</option>
+                    <option>Indian</option>
+                    <option>Spanish</option>
+                    <option>German</option>
+                    <option>American</option>
+                    <option>French</option>
+                    <option>Any Other</option>
+                  </select>
+
+                <div class="invalid-feedback">
+                  Please Enter Nationality.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Contact Number</label>
+                <input type="tel" class="form-control" id="Date_of_birth" placeholder="Number" name="Contact_Number">
+                <div class="invalid-feedback">
+                  Please Enter Contact Number
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05"> Email ID</label>
+                <input type="email" class="form-control" id="Date_of_birth" placeholder="Email" name="Email">
+                <div class="invalid-feedback">
+                  Please Email Id
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Address</label>
+                <input type="address" class="form-control" id="Date_of_birth" placeholder="Address" name="Address">
+                <div class="invalid-feedback">
+                  Please Enter Address.
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Sponsorship for </label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Sponsorship_for">
+                    <option value="" disabled selected hidden>Choose Anyone...</option>
+                        <option>Education</option>
+                        <option>Medical</option>
+
+                      </select>
+                <div class="invalid-feedback">
+                  Please Select the option.
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Sponsor starting date of Payment</label>
+                <input type="Date" class="form-control" id="Date_of_birth" name="Sponsor_start_date_of_payment">
+                <div class="invalid-feedback">
+                  Please Enter Date.
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Name of the Sponsored kids</label>
+                <input type="name" class="form-control" id="Date_of_birth" placeholder="Full Name" name="Name_of_sponsor_kids">
+                <div class="invalid-feedback">
+                  Please Enter The Name.
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Sponsor met the children</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Sponsor_met_the_children">
+                    <option value="" disabled selected hidden>Choose Anyone...</option>
+                        <option>Yes</option>
+                        <option>No</option>
+
+                      </select>
+                <div class="invalid-feedback">
+                  Please Choose anyone.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Scheme of donation</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Scheme_of_donation">
+                    <option value="" disabled selected hidden>Choose Payment...</option>
+                    <option>Yearly</option>
+                    <option>Half Year</option>
+                    <option>Quarterly</option>
+                    <option>Monthly</option>
+                  </select>
+                <div class="invalid-feedback">
+                  Please Choose Anyone Option
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Standing monthly order</label>
+                <input type="date" class="form-control" id="Date_of_birth" placeholder="Date of Birth" name="Standing_monthly_order" >
+                <div class="invalid-feedback">
+                  Please Enter The Date.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Standing Yearly order</label>
+                <input type="date" class="form-control" id="Date_of_birth" placeholder="Date of Birth" name="Standing_Yearly_order">
+                <div class="invalid-feedback">
+                  Please Enter The Date.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Bank account in</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Bank_account_in">
+                    <option value="" disabled selected hidden>Choose Bank...</option>
+                    <option>BBVA(Spain)</option>
+                    <option>SBI</option>
+                    <option>ICICI</option>
+                    <option>Misereor(Germany)</option>
+                  </select>
+                <div class="invalid-feedback">
+                  Please Choose Anyone Option
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">If Sponsor stopped paying</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="If_Sponsor_stopped_paying">
+                    <option value="" disabled selected hidden>Choose Option...</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+                <div class="invalid-feedback">
+                  Please Select Option.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck">
+                <label class="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-dark btn-center" type="submit">Add Sponsor</button>
+          </form>
+          <br><br><br>
+          <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+          </script>
+    </div>
+    <br><br><br><br>
+    <script src="{% static "libs/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "libs/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "libs/%40shopify/draggable/lib/es5/draggable.bundle.legacy.js" %}"></script>
+    <script src="{% static "libs/autosize/dist/autosize.min.js" %}"></script>
+    <script src="{% static "libs/chart.js/dist/Chart.min.js" %}"></script>
+    <script src="{% static "libs/dropzone/dist/min/dropzone.min.js"%}"></script>
+    <script src="{% static "libs/flatpickr/dist/flatpickr.min.js"%}"></script>
+    <script src="{% static "libs/highlightjs/highlight.pack.min.js"%}"></script>
+    <script src="{% static "libs/jquery-mask-plugin/dist/jquery.mask.min.js"%}"></script>
+    <script src="{% static "libs/list.js/dist/list.min.js"%}"></script>
+    <script src="{% static "libs/quill/dist/quill.min.js"%}"></script>
+    <script src="{% static "libs/select2/dist/js/select2.full.min.js"%}"></script>
+    <script src="{% static "libs/chart.js/Chart.extension.js"%}"></script>
+
+    <script src="{% static "js/theme.min.js"%}"></script>
+    <script src="{% static "js/dashkit.min.js"%}"></script>
+</body>
+</html>

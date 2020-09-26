@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id='testName' type='checkbox' value='Yes' name='testName'>
+    <input id='testNameHidden' type='hidden' value='No' name='testName'>
+    <script>
+        if(document.getElementById("testName").checked) {
+        document.getElementById('testNameHidden').disabled = true;
+    }
+    </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+
+
+    
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="positionsought">Position Sought</label>
+        <div class="col-md-4">
+        <div class="checkbox">
+          <label for="positionsought-0">
+            <input type="checkbox" name="positionsought" id="positionsought-0" value="Cutting" onclick="dynInput(this);" display:none>
+            Cutting
+          </label>
+          <p id="insertinputs"></p>
+          </div>
+        <div class="checkbox">
+          <label for="positionsought-1">
+            <input type="checkbox" name="positionsought" id="positionsought-1" value="Sewing">
+            Sewing
+          </label>
+          </div>
+        <div class="checkbox">
+          <label for="positionsought-2">
+            <input type="checkbox" name="positionsought" id="positionsought-2" value="Upholstery">
+            Upholstery
+          </label>
+          </div>
+        <div class="checkbox">
+          <label for="positionsought-3">
+            <input type="checkbox" name="positionsought" id="positionsought-3" value="Frame Department">
+            Frame Department
+          </label>
+          </div>
+        <div class="checkbox">
+          <label for="positionsought-4">
+            <input type="checkbox" name="positionsought" id="positionsought-4" value="Mill Room">
+            Mill Room
+          </label>
+          </div>
+        <div class="checkbox">
+          <label for="positionsought-5">
+            <input type="checkbox" name="positionsought" id="positionsought-5" value="Cushion">
+            Cushion
+          </label>
+          </div>
+        <div class="checkbox">
+          <label for="positionsought-6">
+            <input type="checkbox" name="positionsought" id="positionsought-6" value="Any">
+            Any
+          </label>
+          </div>
+        </div>
+      </div>
+
+      <p id="insertinputs"></p>
+
+      <script type="text/javascript">
+        function dynInput(cbox) {
+         if (cbox.checked) {
+           var input = document.createElement("input");
+           input.type = "text";
+           var div = document.createElement("div");
+           div.id = cbox.name;
+           div.innerHTML = "Text to display for " + cbox.name;
+           div.appendChild(input);
+           document.getElementById("insertinputs").appendChild(div);
+         } else {
+           document.getElementById(cbox.name).remove();
+         }
+       }
+       </script>
+</body>
+</html> -->

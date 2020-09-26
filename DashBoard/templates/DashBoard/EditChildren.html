@@ -1,0 +1,234 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="{% static "fonts/feather/feather.css" %}"  />
+    <link rel="stylesheet" href="{% static "libs/flatpickr/dist/flatpickr.min.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/quill/dist/quill.core.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/highlightjs/styles/vs2015.css" %}" />
+
+    <!-- Map -->
+    <link href="../api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel="stylesheet" />
+
+    <!-- Theme CSS -->
+
+    <link rel="stylesheet" href="{% static "css/theme.min.css"%}"  id="stylesheetLight">
+    <link rel="stylesheet" href="{% static "css/theme-dark.min.css" %}" id="stylesheetDark">
+
+    <style>
+      body {
+        display: none;
+      }
+
+    </style>
+
+    <!-- Title -->
+    <title>Diksha</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156446909-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-156446909-1");</script>
+
+  </head>
+  <body class="align-items-center bg-auth border-top border-top-2 border-primary">
+    <!-- CONTENT
+    ================================================== -->
+          <div class="container">
+            <div class="p-1 ml-3 mt-4">
+              <h2><strong class="d-inline-block mb-2 text-primary">Children Profile</strong></h2>
+            </div>
+            <aside class="col-md-4 blog-sidebar">
+              <div class="p-1 mb-2 rounded">
+                <div>
+                  <img src="{% static "img/profile/1.jpeg" %}" alt="..." class="img-fluid" style="width: 180px; height:230px;">
+                </div>
+              </div>
+            </aside>
+              <div>
+                <div class="p-4 mb-3 rounded" style="background-color: #f4f6f6;">
+
+
+
+                  <form>
+                    <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-3 col-form-label" >Code of Child</label>
+                      <div class="col-sm-9">
+                        <input type="text" readonly class="form-control-plaintext" id="my-textarea" value="{{ data.code }}" >
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Date of Entry</label>
+                        <div class="col-sm-9" >
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{ data.Date_of_entry }}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Child_Fname}}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Surname</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Child_Lname}}">
+                        </div>
+                      </div>
+
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Date of Birth
+                        </label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Date_of_birth}}">
+                        </div>
+                      </div>
+
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Gender</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Gender}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Religion</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Relegion}}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Caste</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Caste}}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Father's Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Father_name}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Mother's Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Mother_name}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Siblings</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Siblings}}">
+                        </div>
+                      </div>
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Contatct Number</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Contact_Number}}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Name of Sponsor</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Name_of_sponsor}}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Need of the Child</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Need_of_child}}">
+                        </div>
+                      </div>
+
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">How the children came to Disksha</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Join_date_of_diksha}}">
+                        </div>
+                      </div>
+
+
+                      <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Joining Date of Disksha Project</label>
+                        <div class="col-sm-9">
+                          <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="{{data.Children_came_diksha}}">
+                        </div>
+                      </div>
+
+
+                    </div>
+
+
+                  </form>
+
+                  <div class="mt-2">
+                    <a href="" class="btn btn-lg btn-primary">
+                        Edit Profile
+                      </a>
+                  </div>
+
+
+                  <div class="mt-2 mb-2" >
+                    <a href="/" class="btn btn-lg btn-primary">
+                        Return to your dashboard
+                      </a>
+                  </div>
+
+                </div>
+
+              </div><!-- /.blog-main -->
+
+              <!-- /.blog-sidebar -->
+          </div>
+
+       <!-- JAVASCRIPT
+    ================================================== -->
+    <!-- Libs JS -->
+    <script src="{% static "libs/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "libs/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "libs/%40shopify/draggable/lib/es5/draggable.bundle.legacy.js" %}"></script>
+    <script src="{% static "libs/autosize/dist/autosize.min.js" %}"></script>
+    <script src="{% static "libs/chart.js/dist/Chart.min.js" %}"></script>
+    <script src="{% static "libs/dropzone/dist/min/dropzone.min.js"%}"></script>
+    <script src="{% static "libs/flatpickr/dist/flatpickr.min.js"%}"></script>
+    <script src="{% static "libs/highlightjs/highlight.pack.min.js"%}"></script>
+    <script src="{% static "libs/jquery-mask-plugin/dist/jquery.mask.min.js"%}"></script>
+    <script src="{% static "libs/list.js/dist/list.min.js"%}"></script>
+    <script src="{% static "libs/quill/dist/quill.min.js"%}"></script>
+    <script src="{% static "libs/select2/dist/js/select2.full.min.js"%}"></script>
+    <script src="{% static "libs/chart.js/Chart.extension.js"%}"></script>
+
+    <!-- Map -->
+    <script src="{% static "api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"%}"></script>
+
+    <!-- Theme JS -->
+    <script src="{% static "js/theme.min.js"%}"></script>
+    <script src="{% static "js/dashkit.min.js"%}"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,253 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="{% static "fonts/feather/feather.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/flatpickr/dist/flatpickr.min.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/quill/dist/quill.core.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/highlightjs/styles/vs2015.css" %}" />
+
+    <!-- Map -->
+    <!-- <link href="../api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" rel="stylesheet" /> -->
+
+    <!-- Theme CSS -->
+
+    <link rel="stylesheet" href="{% static "css/theme.min.css"%}" id="stylesheetLight">
+    <link rel="stylesheet" href="{% static "css/theme-dark.min.css" %}" id="stylesheetDark">
+
+    <title>Diksha</title>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}"><strong style="margin-left:20px;">Diksha Portal</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav" style="margin-left:20px;">
+      <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+      <a class="nav-item nav-link" href="{% url 'SponsorProfile' %}">Sponsors</a>
+      <a class="nav-item nav-link" href="{% url 'EducationProfile' %}">Education <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">About Us</a>
+    </div>
+  </div>
+  </nav><br><br><br><br>
+    <div class="container p-2 mt-2" style="text-align: center;">
+        <h1 class="text text-center text-white bg-dark">Children Profile</h1>
+    </div>
+    <div class="container p-4  border rounded">
+
+        <form class="needs-validation" novalidate action="{% url 'addChildren'  %}" method="post" >
+          {% csrf_token %}
+            <div class="form-row">
+              <div class="col-md-6 mb-3">
+                <label for="validationCustom02">Date of entry</label>
+                <input type="Date" class="form-control" id="Date_of_entry" placeholder="Date" name="Date_of_entry" value="" required>
+                <div class="invalid-feedback">
+                    Please Enter Date.
+                  </div>
+                <!-- <div class="valid-feedback">
+                  Looks good!
+                </div> -->
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom03">Name</label>
+                <input type="text" class="form-control" id="Child_Fname" placeholder="Name" name="Child_Fname" required>
+                <div class="invalid-feedback">
+                  Please Enter your Name
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom04">Surname</label>
+                <input type="text" class="form-control" id="Child_Lname" name="Child_Lname"  placeholder="Last Name" required>
+                <div class="invalid-feedback">
+                  Please Enter your Surname.
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">DOB</label>
+                <input type="Date" class="form-control" id="Date_of_birth" placeholder="Date of Birth" name="Date_of_birth" required>
+                <div class="invalid-feedback">
+                  Please Enter Date of Birth.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="Gender">Gender</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Gender" required>
+                    <option value="" disabled selected hidden>Choose Gender...</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                  </select>
+
+                <div class="invalid-feedback">
+                  Please Enter your sex.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Relegion</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Relegion" required>
+                    <option value="" disabled selected hidden>Choose Relegion...</option>
+                    <option>Hindu</option>
+                    <option>Muslim</option>
+                    <option>Christian</option>
+                    <option>Sikh</option>
+                    <option>Any Other</option>
+                  </select>
+                <div class="invalid-feedback">
+                  Please Enter your Relegion.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Caste</label>
+                <select class="form-control" name="Caste" id="exampleFormControlSelect1" required>
+                    <option value="" disabled selected hidden>Choose Caste...</option>
+                    <option>OBC</option>
+                    <option>ST</option>
+                    <option>SC</option>
+                    <option>Any Other</option>
+                  </select>
+                <div class="invalid-feedback">
+                  Please Enter your Caste.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Father's Name</label>
+                <input type="text" class="form-control" id="validationCustom05" name="Father_name" placeholder="Full Name" required>
+                <div class="invalid-feedback">
+                  Please Enter Full Name.
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Mother's Name</label>
+                <input type="text" class="form-control" name="Mother_name" id="validationCustom05" placeholder="Full Name" required>
+                <div class="invalid-feedback">
+                  Please Enter Full Name.
+                </div>
+              </div>
+
+              <div class="col-md-2 mb-3">
+                <label for="validationCustom05">Siblings</label>
+                <select class="form-control" name="Siblings" id="exampleFormControlSelect1" required>
+                    <option value="" disabled selected hidden>Select Number...</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                <div class="invalid-feedback">
+                  Please Enter Siblings.
+                </div>
+              </div>
+
+
+              <div class="col-md-2 mb-3">
+                <label for="validationCustom05">Contact Number</label>
+                <input type="tel" name="Contact_Number" class="form-control" id="validationCustom05" placeholder="" required>
+                <div class="invalid-feedback">
+                  Please Enter your Contact Number.
+                </div>
+              </div>
+
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Name of the Sponsor</label>
+                <input type="text" class="form-control" id="validationCustom05" name="Name_of_sponsor" placeholder="Full Name">
+                <div class="invalid-feedback">
+                  Please Enter Full Name.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Need of the Child</label>
+                <input type="text" name="Need_of_child" class="form-control" id="validationCustom05" placeholder="Reason" required>
+                <div class="invalid-feedback">
+                  Please provide Any reason.
+                </div>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Joining Date of Diksha</label>
+                <input type="Date" name="Join_date_of_diksha" class="form-control" id="validationCustom05" placeholder="Date" required>
+                <div class="invalid-feedback">
+                  Please Enter Date.
+                </div>
+              </div>
+
+              <div class="col-md-12 mb-3">
+                <label for="validationCustom05">How the children came to Diksha Project</label>
+                <textarea class="form-control" name="Children_came_diksha" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <div class="invalid-feedback">
+                  Please provide a valid zip.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                  Agree to terms and conditions
+                </label>
+                <div class="invalid-feedback">
+                  You must agree before submitting.
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-dark" type="submit">Add Children</button>
+          </form>
+          <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+          </script>
+    </div>
+<br><br><br><br>
+    <script src="{% static "libs/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "libs/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "libs/%40shopify/draggable/lib/es5/draggable.bundle.legacy.js" %}"></script>
+    <script src="{% static "libs/autosize/dist/autosize.min.js" %}"></script>
+    <script src="{% static "libs/chart.js/dist/Chart.min.js" %}"></script>
+    <script src="{% static "libs/dropzone/dist/min/dropzone.min.js"%}"></script>
+    <script src="{% static "libs/flatpickr/dist/flatpickr.min.js"%}"></script>
+    <script src="{% static "libs/highlightjs/highlight.pack.min.js"%}"></script>
+    <script src="{% static "libs/jquery-mask-plugin/dist/jquery.mask.min.js"%}"></script>
+    <script src="{% static "libs/list.js/dist/list.min.js"%}"></script>
+    <script src="{% static "libs/quill/dist/quill.min.js"%}"></script>
+    <script src="{% static "libs/select2/dist/js/select2.full.min.js"%}"></script>
+    <script src="{% static "libs/chart.js/Chart.extension.js"%}"></script>
+    <script src="{% static "js/theme.min.js"%}"></script>
+    <script src="{% static "js/dashkit.min.js"%}"></script>
+</body>
+</html>

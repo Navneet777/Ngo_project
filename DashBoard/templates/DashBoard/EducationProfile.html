@@ -1,0 +1,255 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+
+    <!-- Libs CSS -->
+    <link rel="stylesheet" href="{% static "fonts/feather/feather.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/flatpickr/dist/flatpickr.min.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/quill/dist/quill.core.css" %}" />
+    <link rel="stylesheet" href="{% static "libs/highlightjs/styles/vs2015.css" %}" />
+
+    <link rel="stylesheet" href="{% static "css/theme.min.css"%}" id="stylesheetLight">
+    <link rel="stylesheet" href="{% static "css/theme-dark.min.css" %}" id="stylesheetDark">
+
+    <title>Diksha</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}"><strong style="margin-left:20px;">Diksha Portal</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav" style="margin-left:20px;">
+      <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+      <a class="nav-item nav-link" href="{% url 'SponsorProfile' %}">Sponsors</a>
+      <a class="nav-item nav-link" href="{% url 'EducationProfile' %}">Education <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">About Us</a>
+    </div>
+  </div>
+</nav><br><br><br><br>
+    <div class="container p-2 mt-2" ><br>
+    <h2 class="text text-center text-white bg-dark">Education Profile</h2>
+    </div>
+    {% if messages %}
+    {% for i in messages %}
+    <p>{{i}}</p>
+    {% endfor %}
+    {% endif %}
+    <div class="container p-4  border-dark rounded ">
+        <form class="needs-validation" novalidate action="{% url 'EducationProfile' %}" method="POST" >
+          {% csrf_token %}
+            <div class="form-row text-left">
+              <div class="col-md-3 mb-3">
+                <label>Code of the child</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">@</span>
+                  </div>
+                  <input type="text" class="form-control" id="code" placeholder="Code" aria-describedby="inputGroupPrepend" name="code" required>
+                  <div class="invalid-feedback">
+                    Please Enter Children Code.
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Child Goes To</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Child_goes_to" required>
+                    <option value="" disabled selected hidden>Select</option>
+                    <option>School</option>
+                    <option>College</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+          </div>
+          <br><br><br><br>
+            <h2>If School Fill This Details</h2>
+            <div class="form-row">
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom03">School Name</label>
+                <input type="text" class="form-control" id="Child_Fname" placeholder="School Name" name="School_Name">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom04">Class</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Class">
+                    <option value="" disabled selected hidden>Select Class</option>
+                    <option>L.K.G</option>
+                    <option>H.K.G</option>
+                    <option>1st</option>
+                    <option>2nd</option>
+                    <option>3rd</option>
+                    <option>4th</option>
+                    <option>5th</option>
+                    <option>6th</option>
+                    <option>7th</option>
+                    <option>8th</option>
+                    <option>9th</option>
+                    <option>10th</option>
+                    <option>11th</option>
+                    <option>12th</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Medium of School</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Medium">
+                    <option value="" disabled selected hidden>Select Medium</option>
+                    <option>Hindi</option>
+                    <option>English</option>
+                </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="Gender">Level of School</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Level_of_school">
+                    <option value="" disabled selected hidden>Select Level</option>
+                    <option>Primary</option>
+                    <option>Secondary</option>
+                    <option>Higer Secondary</option>
+                  </select>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Board</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Board">
+                    <option value="" disabled selected hidden>Select Board</option>
+                    <option>ICSE</option>
+                    <option>CBSE</option>
+                    <option>RBSE</option>
+                    <option>Any Other</option>
+                  </select>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Type of School</label>
+                <select class="form-control" name="Type_of_School" id="exampleFormControlSelect1">
+                    <option value="" disabled selected hidden>Select School type</option>
+                    <option>Government</option>
+                    <option>Private</option>
+                  </select>
+               </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Child Studying From</label>
+                <input type="text" class="form-control" name="Child_studying_from" id="validationCustom05" placeholder="Enter Year">
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Hostel</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Hostel">
+                    <option value="" disabled selected hidden>Select</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                  </select>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="validationCustom05">Hostel Fees</label>
+                <input type="text" class="form-control" name="Hostel_Fees" id="validationCustom05" placeholder="Hostel Fee">
+              </div>
+              <h2>If College Fill This Details</h2>
+              <div class="form-row">
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom03">College Name</label>
+                  <input type="text" class="form-control" id="Child_Fname" placeholder="Enter College Name" name="College_Name">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom04">Course</label>
+                  <input type="text" class="form-control" name="Course" id="validationCustom05" placeholder="Enter Course Name">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom05">Scheme of Course</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="Scheme_of_course">
+                      <option value="" disabled selected hidden>select</option>
+                      <option>Year</option>
+                      <option>Semester</option>
+                  </select>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                  <label for="Gender">Year/Semester</label>
+                  <select class="form-control" id="exampleFormControlSelect1" name="Semeste">
+                      <option value="" disabled selected hidden>Select Year/Semester</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                      <option>6</option>
+                      <option>7</option>
+                      <option>8</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom05">University</label>
+                  <input type="text" class="form-control" name="University" id="validationCustom05" placeholder="Enter University Name">
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom05">Type of College</label>
+                  <select class="form-control" name="Type_of_College" id="exampleFormControlSelect1">
+                      <option value="" disabled selected hidden>Select College type</option>
+                      <option>Government</option>
+                      <option>Private</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom05">Accomodation</label>
+                  <select class="form-control" name="Accomodation" id="exampleFormControlSelect1">
+                      <option value="" disabled selected hidden>Select Accomodation</option>
+                      <option>Own Home</option>
+                      <option>Hostel</option>
+                      <option>Rented Room</option>
+                      <option>Paying Guest</option>
+                      <option>Relative's Home</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <label for="validationCustom05">Accomodation Fees</label>
+                  <input type="text" class="form-control" name="Fees_for_accomodation" id="validationCustom05" placeholder="Fees for Accomodation">
+                </div>
+            <button class="btn btn-dark" type="submit" style="margin-left:30px; margin-top:15px;">Add Education Details</button>
+          </form>
+          </div>
+          <script>
+          // Example starter JavaScript for disabling form submissions if there are invalid fields
+          (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+              // Fetch all the forms we want to apply custom Bootstrap validation styles to
+              var forms = document.getElementsByClassName('needs-validation');
+              // Loop over them and prevent submission
+              var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                  if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                  }
+                  form.classList.add('was-validated');
+                }, false);
+              });
+            }, false);
+          })();
+          </script>
+    </div>
+
+    <script src="{% static "libs/jquery/dist/jquery.min.js" %}"></script>
+    <script src="{% static "libs/bootstrap/dist/js/bootstrap.bundle.min.js" %}"></script>
+    <script src="{% static "libs/%40shopify/draggable/lib/es5/draggable.bundle.legacy.js" %}"></script>
+    <script src="{% static "libs/autosize/dist/autosize.min.js" %}"></script>
+    <script src="{% static "libs/chart.js/dist/Chart.min.js" %}"></script>
+    <script src="{% static "libs/dropzone/dist/min/dropzone.min.js"%}"></script>
+    <script src="{% static "libs/flatpickr/dist/flatpickr.min.js"%}"></script>
+    <script src="{% static "libs/highlightjs/highlight.pack.min.js"%}"></script>
+    <script src="{% static "libs/jquery-mask-plugin/dist/jquery.mask.min.js"%}"></script>
+    <script src="{% static "libs/list.js/dist/list.min.js"%}"></script>
+    <script src="{% static "libs/quill/dist/quill.min.js"%}"></script>
+    <script src="{% static "libs/select2/dist/js/select2.full.min.js"%}"></script>
+    <script src="{% static "libs/chart.js/Chart.extension.js"%}"></script>
+
+    <script src="{% static "js/theme.min.js"%}"></script>
+    <script src="{% static "js/dashkit.min.js"%}"></script>
+
+</body>
+</html>

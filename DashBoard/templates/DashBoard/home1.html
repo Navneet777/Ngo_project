@@ -1,0 +1,238 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+ <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc." />
+
+ <!-- Libs CSS -->
+ <link rel="stylesheet" href="{% static "fonts/feather/feather.css" %}" />
+ <link rel="stylesheet" href="{% static "libs/flatpickr/dist/flatpickr.min.css" %}" />
+ <link rel="stylesheet" href="{% static "libs/quill/dist/quill.core.css" %}" />
+ <link rel="stylesheet" href="{% static "libs/highlightjs/styles/vs2015.css" %}" />
+
+
+ <link rel="stylesheet" href="{% static "css/theme.min.css"  %}" id="stylesheetLight">
+ <link rel="stylesheet" href="{% static "css/theme-dark.min.css"  %}" id="stylesheetDark">
+
+
+    <style>
+      body {
+        display: none;
+      }
+
+    </style>
+
+    <!-- Title -->
+    <title>Diksha</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156446909-1"></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "UA-156446909-1");</script>
+
+  </head>
+  <body>
+    <div class="main-content">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="{% url 'home' %}"><strong style="margin-left:20px;">Diksha Portal</strong></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav" style="margin-left:20px;">
+          <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
+          <a class="nav-item nav-link" href="{% url 'SponsorProfile' %}">Sponsors</a>
+          <a class="nav-item nav-link" href="{% url 'EducationProfile' %}">Education <span class="sr-only">(current)</span></a>
+          <a class="nav-item nav-link" href="#">About Us</a>
+        </div>
+      </div>
+    </nav>
+    <br><br><br>
+      <nav class="navbar navbar-expand-md navbar-light d-none d-md-flex" id="topbar">
+        <div class="container-fluid">
+          <a class="navbar-brand ml-4" href="{% url 'home'%}">
+            <img src="{% static "img/logo/logo-1.png" %}" class="navbar-brand-img
+            mx-auto" alt="company logo" style="width: 9%; height: auto; ">
+          </a>
+          <div class="navbar-user mr-4">
+            <div class="mr-4 mt-4 ">
+              <h3> {{request.user}} </h3>
+          </div>
+            <div class="dropdown">
+              <a href="#" class="avatar avatar-sm avatar-online dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img src="{% static "img/avatars/profiles/user.svg" %}" alt="..." class="avatar-img rounded-circle" />
+              </a>
+              <div class="dropdown-menu dropdown-menu-right p-3">
+                <span style="color:blue;text-align:center;">
+                <a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="header">
+              <div class="header-body">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <ul class="nav nav-tabs nav-overflow header-tabs">
+                      <li class="nav-item">
+                        <a href="#!" class="nav-link text-nowrap active">
+                          Number of Childrens <span class="badge badge-pill badge-soft-secondary">627</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#!" class="nav-link text-nowrap active">
+                          Number of Sponsors <span class="badge badge-pill badge-soft-secondary">198</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="#!" class="nav-link text-nowrap active ">
+                          Waiting Childrens <span class="badge badge-pill badge-soft-secondary">29</span>
+                        </a>
+                      </li>
+                      <div class="row align-items-center" style="margin-left:320px;">
+                        <div class="col-auto">
+                          <a href="{% url 'addChildren'%}" class="btn btn-dark ml-2">
+                            Add Children
+                          </a>
+                        </div>
+                      </div>
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <a href="{% url 'SponsorProfile'%}" class="btn btn-dark ml-2">
+                            Add Sponsor
+                          </a>
+                        </div>
+                      </div>
+                      <div class="row align-items-center">
+                        <div class="col-auto">
+                          <a href="{% url 'EducationProfile'%}" class="btn btn-dark ml-2">
+                            Add Education Details
+                          </a>
+                        </div>
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="companiesListPane" role="tabpanel" aria-labelledby="companiesListTab">
+                <div class="card" data-list='{"valueNames": ["item-name", "item-industry", "item-location", "item-owner", "item-created"], "page": 10, "pagination": {"paginationClass": "list-pagination"}}' id="companiesList">
+                  <div class="card-header">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <form>
+                          <div class="input-group input-group-flush">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <i class="fe fe-search"></i>
+                              </span>
+                            </div>
+                            <input class="list-search form-control" type="search" placeholder="Search Children">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-responsive" >
+                    <table class="table table-sm table-hover table-nowrap card-table">
+                      <thead>
+                        <tr>
+                          <th>
+                            <a class="list-sort text-muted" data-sort="item-name" href="#">Children Name</a>
+                          </th>
+                          <th>
+                            <a class="list-sort text-muted" data-sort="item-industry" href="#">Children Code</a>
+                          </th>
+                          <th>
+                            <a class="list-sort text-muted" data-sort="item-location" href="#">Need of the Child</a>
+                          </th>
+                          <th>
+                            <a class="list-sort text-muted" data-sort="item-owner" href="#">How Children Came
+                          </th>
+                          <th colspan="2">
+                            <a class="list-sort text-muted" data-sort="item-created" href="#">Join Date of Diksha</a>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody class="list font-size-base">
+                        {% for data in data %}
+                        <tr>
+                          <td>
+                           <a class="item-name text-reset" href="/profile/{{data.code}}">{{ data.Child_Fname }} {{data.Child_Lname}}</a>
+                          </td>
+                          <td>
+                           <a class="item-name text-reset" href="/profile/{{data.code}}">{{ data.code }}</a>
+                          </td>
+                          <td>
+                           <a class="item-name text-reset">{{ data.Need_of_child }}</a>
+                          </td>
+                          <td>
+                            <time class="item-created" datetime="2020-01-14">{{data.Children_came_diksha}}</time>
+                          </td>
+                          <td>
+                            <time class="item-created" datetime="2020-01-14">{{data.Join_date_of_diksha}}</time>
+                          </td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="card-footer d-flex justify-content-between">
+
+                    <!-- Pagination (prev) -->
+                    <ul class="list-pagination-prev pagination pagination-tabs card-pagination">
+                      <li class="page-item">
+                        <a class="page-link pl-0 pr-4 border-right" href="#">
+                          <i class="fe fe-arrow-left mr-1"></i> Prev
+                        </a>
+                      </li>
+                    </ul>
+                    <ul class="list-pagination pagination pagination-tabs card-pagination"></ul>
+                    <ul class="list-pagination-next pagination pagination-tabs card-pagination">
+                      <li class="page-item">
+                        <a class="page-link pl-4 pr-0 border-left" href="#">
+                          Next <i class="fe fe-arrow-right ml-1"></i>
+                        </a>
+                      </li>
+                    </ul>
+                    <div class="list-alert alert alert-dark alert-dismissible border fade" role="alert">
+                      <div class="row align-items-center">
+                        <div class="col">
+                        </div>
+                      </div>
+                      <button type="button" class="list-alert-close close" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="{% static "libs/jquery/dist/jquery.min.js"%}"></script>
+    <script src="{% static "libs/bootstrap/dist/js/bootstrap.bundle.min.js"%}"></script>
+    <script src="{% static "libs/%40shopify/draggable/lib/es5/draggable.bundle.legacy.js"%}"></script>
+    <script src="{% static "libs/autosize/dist/autosize.min.js"%}"></script>
+    <script src="{% static "libs/chart.js/dist/Chart.min.js"%}"></script>
+    <script src="{% static "libs/dropzone/dist/min/dropzone.min.js"%}"></script>
+    <script src="{% static "libs/flatpickr/dist/flatpickr.min.js"%}"></script>
+    <script src="{% static "libs/highlightjs/highlight.pack.min.js"%}"></script>
+    <script src="{% static "libs/jquery-mask-plugin/dist/jquery.mask.min.js"%}"></script>
+    <script src="{% static "libs/list.js/dist/list.min.js"%}"></script>
+    <script src="{% static "libs/quill/dist/quill.min.js"%}"></script>
+    <script src="{% static "libs/select2/dist/js/select2.full.min.js"%}"></script>
+    <script src="{% static "libs/chart.js/Chart.extension.js"%}"></script>
+    <script src="{% static "api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js"%}"></script>
+    <script src="{% static "js/theme.min.js"%}"></script>
+    <script src="{% static "js/dashkit.min.js"%}"></script>
+  </body>
+</html>
